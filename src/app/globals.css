@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base reset */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+
+/* Apply theme background/foreground so dark mode works without Tailwind config */
+html, body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Login page animations */
+@keyframes scan-y {
+  0%   { top: -2px; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 0.8; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes float-pkg {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50%       { transform: translateY(-14px) rotate(2deg); }
+}
+@keyframes dash-draw {
+  to { stroke-dashoffset: 0; }
+}
+.login-scan   { animation: scan-y 4s ease-in-out infinite; }
+.login-float  { animation: float-pkg 3.5s ease-in-out infinite; }
+.login-draw   { animation: dash-draw 2.5s ease-in-out forwards; }
+
+/* Dashboard entrance animations */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.dash-fade-up { animation: fade-up 0.45s cubic-bezier(0.16,1,0.3,1) both; }
+.dash-fade-in { animation: fade-in 0.3s ease both; }
+
+/* CSS variables for shadcn/ui components */
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: #0e1017;
+  --foreground: #f0f0f5;
+  --card: #111827;
+  --card-foreground: #f0f0f5;
+  --popover: #111827;
+  --popover-foreground: #f0f0f5;
+  --primary: #f0f0f5;
+  --primary-foreground: #0e1017;
+  --secondary: #1e2130;
+  --secondary-foreground: #f0f0f5;
+  --muted: #1e2130;
+  --muted-foreground: #6b7280;
+  --accent: #1e2130;
+  --accent-foreground: #f0f0f5;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: #1e2130;
+  --input: #2a3145;
+  --ring: #4b5563;
+  --sidebar: #0a0d14;
+  --sidebar-foreground: #f0f0f5;
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: #f0f0f5;
+  --sidebar-accent: #1a1f2e;
+  --sidebar-accent-foreground: #f0f0f5;
+  --sidebar-border: #1e2130;
+  --sidebar-ring: #4b5563;
+}
