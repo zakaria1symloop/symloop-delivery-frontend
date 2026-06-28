@@ -7,9 +7,6 @@ import type { NextConfig } from "next";
 const BACKEND_ORIGIN = process.env.BACKEND_ORIGIN || "http://72.60.190.211:4000";
 
 const nextConfig: NextConfig = {
-  // Rapidly-iterated demo code may carry lint warnings; don't let them fail the build.
-  eslint: { ignoreDuringBuilds: true },
-
   // Dev-only: allow HMR/client resources over the LAN IP (phones / other devices).
   allowedDevOrigins: ["192.168.100.123"],
 
