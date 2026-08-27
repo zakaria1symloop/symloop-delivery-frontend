@@ -8,7 +8,7 @@ const BACKEND_ORIGIN = process.env.BACKEND_ORIGIN || "http://72.60.190.211:4000"
 
 const nextConfig: NextConfig = {
   // Dev-only: allow HMR/client resources over the LAN IP (phones / other devices).
-  allowedDevOrigins: ["192.168.100.123"],
+  allowedDevOrigins: ["192.168.100.36", "192.168.100.123", "192.168.100.*"],
 
   // Same-origin proxy to the HTTP backend (avoids mixed content on HTTPS hosts).
   async rewrites() {
